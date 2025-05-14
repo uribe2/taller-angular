@@ -13,18 +13,18 @@ import { Series } from '../series';
 export class SeriesListComponent implements OnInit {
 
   series: Series[] = [];
-  averageSeasons: number = 0;
+  seasonsAverage: number = 0;
 
   constructor(private seriesService: SeriesService) { }
 
   ngOnInit() {
     this.seriesService.getSeries().subscribe((data) => {
       this.series = data;
-      this.averageSeasons = this.calculateAverageSeasons();
+      this.seasonsAverage = this.calculateSeasonsAverage();
     });
   }
 
-    calculateAverageSeasons(): number {
+    calculateSeasonsAverage(): number {
       const total = this.series.reduce((sum, serie) => sum + serie.seasons, 0);
       return total / this.series.length;
     }
