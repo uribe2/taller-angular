@@ -1,0 +1,19 @@
+#seriesTable {
+  background-color: #f2f2f2;
+}
+
+#seriesTable thead th {
+  background-color: white;
+}
+
+#seriesTable tbody td:first-child {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

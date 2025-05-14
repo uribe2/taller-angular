@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <h3 class="bg-info text-white p-2 d-flex align-items-center">
+    <img
+      src="https://freepngimg.com/save/webp/71372-tv-logo-television-old-android-free-download-image"
+      alt="TV Series"
+      style="width: 45px; height: 30px; margin-right: 10px"
+    />
+    TV SERIES
+  </h3>
+
+  <div class="row mt-4">
+    <!-- Tabla de series -->
+    <div [ngClass]="selectedSerie ? 'col-md-7 table-container' : 'col-12 table-container'">
+      <table class="table" id="seriesTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Channel</th>
+            <th>Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serie of series">
+            <td><strong>{{ serie.id }}</strong></td>
+            <td>
+              <a href="#" (click)="onSelect(serie)" class="text-primary">
+                {{ serie.name }}
+              </a>
+            </td>
+            <td>{{ serie.channel }}</td>
+            <td>{{ serie.seasons }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Detalle de la serie seleccionada -->
+    <div class="col-md-5" *ngIf="selectedSerie">
+      <div class="card">
+        <img
+          [src]="selectedSerie.poster"
+          class="card-img-top"
+          alt="{{ selectedSerie.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedSerie.name }}</h5>
+          <p class="card-text">{{ selectedSerie.description }}</p>
+          <a [href]="selectedSerie.webpage" target="_blank" class="btn btn-outline-primary">Visit site</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
